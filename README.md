@@ -2,6 +2,14 @@
 
 A collection of reusable AI agent skills.
 
+## Installation
+
+Add all skills in this repo with a single command:
+
+```bash
+npx skills add loongphy/skills
+```
+
 ## exa-search
 
 Search the web and extract page content via the [Exa API](https://exa.ai/docs/reference/search). Includes a cross-platform CLI with subcommands for search, content extraction, and LLM-powered answers:
