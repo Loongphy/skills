@@ -1,5 +1,5 @@
 ---
-name: exa-search
+name: exa
 description: Search the web and extract page contents via the Exa API. Use for general web search, fact-checking, documentation lookup, GitHub/code research, news, company/product/person research, and reading/summarizing URLs. Supports filters (type, category, date, domain), deep search, and LLM answers with citations.
 ---
 
@@ -9,12 +9,12 @@ description: Search the web and extract page contents via the Exa API. Use for g
 
 ### Unix (bash)
 ```bash
-~/.agents/skills/exa-search/exa <command> [flags] <query-or-url>
+~/.agents/skills/exa/exa <command> [flags] <query-or-url>
 ```
 
 ### Windows (PowerShell)
 ```powershell
-~/.agents/skills/exa-search/exa.ps1 <command> [flags] <query-or-url>
+~/.agents/skills/exa/exa.ps1 <command> [flags] <query-or-url>
 ```
 
 | Command | Purpose |
@@ -27,7 +27,7 @@ description: Search the web and extract page contents via the Exa API. Use for g
 
 | Flag | Values / Example |
 |------|------------------|
-| `--type` | `auto` (default), `neural`, `fast`, `deep`, `deep-reasoning`, `instant` |
+| `--type` | `auto` (default), `instant`, `fast`, `deep-lite`, `deep`, `deep-reasoning` (per official API docs; legacy values like `neural` still accepted server-side but undocumented) |
 | `--category` | `news`, `company`, `research paper`, `people`, `personal site`, `financial report` |
 | `--num-results` | `15` (max 100) |
 | `--include` / `--exclude` | `arxiv.org,paperswithcode.com` (comma-separated) |
