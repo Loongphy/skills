@@ -27,7 +27,7 @@ description: Search the web and extract page contents via the Exa API. Use for g
 
 | Flag | Values / Example |
 |------|------------------|
-| `--type` | `auto` (default), `instant`, `fast`, `deep-lite`, `deep`, `deep-reasoning` (per official API docs; legacy values like `neural` still accepted server-side but undocumented) |
+| `--type` | `auto` (default), `instant`, `fast`, `deep-lite`, `deep`, `deep-reasoning` |
 | `--category` | `news`, `company`, `research paper`, `people`, `personal site`, `financial report` |
 | `--num-results` | `15` (max 100) |
 | `--include` / `--exclude` | `arxiv.org,paperswithcode.com` (comma-separated) |
