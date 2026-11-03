@@ -13,7 +13,7 @@ description: Safely run Windows-native tools from WSL and transfer minimal artif
 
 ## Rules
 
-- Shell preference order: `pwsh.exe` > `powershell.exe` > `cmd.exe`. Default to `pwsh.exe` for shell orchestration. Use `powershell.exe` only when the target specifically requires Windows PowerShell 5.1 behavior (for example, validating a script's 5.1 compatibility). Use `cmd.exe` only when a task genuinely requires cmd semantics (for example, `cmd /c` batch redirection) or when verifying behavior under cmd itself; do not use it for general orchestration.
+- Shell preference order: `pwsh.exe` > `powershell.exe` > `cmd.exe`.
 - Keep the executable, script, and files opened directly by a Windows program on the Windows filesystem by default.
 - Do not execute Windows programs against `\\wsl$`, `\\wsl.localhost`, or other Linux-native UNC paths by default.
 - Treat `wslpath` only as a path-format converter. Use it for files already stored on the Windows filesystem; do not use it as a substitute for staging a Linux-native file.
