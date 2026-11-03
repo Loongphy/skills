@@ -13,12 +13,12 @@ description: Safely run Windows-native tools from WSL and transfer minimal artif
 
 ## Rules
 
-- Use `pwsh.exe` for Windows-only shell automation. Invoke a specific Windows executable directly when no PowerShell orchestration is needed.
+- Shell preference order: `pwsh.exe` > `powershell.exe` > `cmd.exe`. Default to `pwsh.exe` for shell orchestration. Use `powershell.exe` only when the target specifically requires Windows PowerShell 5.1 behavior (for example, validating a script's 5.1 compatibility). Use `cmd.exe` only when a task genuinely requires cmd semantics (for example, `cmd /c` batch redirection) or when verifying behavior under cmd itself; do not use it for general orchestration.
 - Keep the executable, script, and files opened directly by a Windows program on the Windows filesystem by default.
 - Do not execute Windows programs against `\\wsl$`, `\\wsl.localhost`, or other Linux-native UNC paths by default.
 - Treat `wslpath` only as a path-format converter. Use it for files already stored on the Windows filesystem; do not use it as a substitute for staging a Linux-native file.
 - If the user explicitly requests direct UNC access and the Windows program is known to support it, explain the tradeoff and limit the access to the smallest required scope.
-- Before passing a command through Bash into PowerShell, protect PowerShell variables from Bash expansion.
+- Before passing a command through Bash into PowerShell, protect PowerShell variables from Bash expansion. If the payload contains any `$` token, read the PowerShell reference and default to a Bash single-quoted `-Command` payload; do not rely on ad hoc backslash escaping.
 - Do not assume a Windows process launched from WSL receives the same per-user environment as an interactive Windows session.
 
 ## PowerShell Details
