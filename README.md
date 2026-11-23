@@ -21,3 +21,12 @@ An API key is required. Get one at [Exa Dashboard](https://dashboard.exa.ai/api-
 - **Config file**: `echo <your-key> > ~/.config/exa-api-key` (Unix) or `$HOME\.config\exa-api-key` (Windows)
 
 See [exa/SKILL.md](./exa/SKILL.md) for usage and flags.
+
+## windows-telemetry-off
+
+One-shot, idempotent PowerShell hardening that shuts off Windows/Edge telemetry upload paths while keeping security features intact. Run [`apply.ps1`](./windows-telemetry-off/apply.ps1) — self-elevates via UAC, then reboot.
+
+- **Off**: DiagTrack service + `Diagtrack-Listener` ETW autologger, 17 telemetry scheduled tasks (CEIP, Siuf feedback, app-compat, WER queue, FamilySafety…), diagnostic-data/activity-feed/CDM/input-personalization policies (HKLM+HKCU), 13 Edge diagnostic policies
+- **Kept**: Defender cloud protection + sample submission, SmartScreen, startup boost, location
+
+See [windows-telemetry-off/SKILL.md](./windows-telemetry-off/SKILL.md) for details and revert notes.
